@@ -6,7 +6,7 @@ os:
 dist: xenial
 
 php:
-  - 7.4.25
+  - 7.4.22
 
 env:
   global:
@@ -14,11 +14,9 @@ env:
 
 install:
   - composer install --no-interaction
-  - composer require --dev php-coveralls/php-coveralls
 
 script:
-  - mkdir -p build/logs
-  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - vendor/bin/pest --coverage-clover build/logs/clover.xml
 
 after_success:
   - travis_retry php vendor/bin/php-coveralls

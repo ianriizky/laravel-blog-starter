@@ -1,6 +1,6 @@
 # Laravel Blog Starter
 
-[![Build Status](https://travis-ci.com/ianriizky/laravel-blog-starter.svg)](https://travis-ci.org/ianriizky/laravel-blog-starter)
+[![Build Status](https://app.travis-ci.com/ianriizky/laravel-blog-starter.svg)](https://app.travis-ci.com/github/ianriizky/laravel-blog-starter)
 [![Quality Score](https://img.shields.io/scrutinizer/g/ianriizky/laravel-blog-starter.svg?style=flat)](https://scrutinizer-ci.com/g/ianriizky/laravel-blog-starter)
 [![Coverage Status](https://coveralls.io/repos/github/ianriizky/laravel-blog-starter/badge.svg)](https://coveralls.io/github/ianriizky/laravel-blog-starter)
 [![Latest Stable Version](https://poser.pugx.org/ianriizky/laravel-blog-starter/v/stable.svg)](https://packagist.org/packages/ianriizky/laravel-blog-starter)
