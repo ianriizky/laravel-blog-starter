@@ -1,0 +1,37 @@
+_id: spc_57b046df8ce1428e8ccc81d750cb6310
+type: ApiSpec
+parentId: wrk_f8939737e1fb4f288d16280ead3112c3
+modified: 1636548928481
+created: 1636548839195
+fileName: laravel-blog-starter.yaml
+contents: >-
+  openapi: 3.0.3
+
+
+  info:
+    title: laravel-blog-starter
+    version: "1.0.0"
+    description: A starter kit to build blog application using Laravel Framework
+    contact:
+      name: Septianata Rizky Pratama
+      email: ian.rizkypratama@gmail.com
+      url: https://github.com/ianriizky
+    license:
+      name: MIT
+      url: https://raw.githubusercontent.com/ianriizky/laravel-blog-starter/master/LICENSE.md
+
+  servers:
+    - description: Your project URL
+      url: "{url}{prefix}"
+      variables:
+        url:
+          default: https://ianriizky-laravel8.test
+        prefix:
+          default: "/blog/api"
+
+  externalDocs:
+    description: Github Repository
+    url: https://github.com/ianriizky/laravel-blog-repository
+
+  paths: {}
+contentType: yaml
