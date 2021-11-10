@@ -22,7 +22,9 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Ianriizky\\LaravelBlogStarter\\": "src/"
+            "Ianrizky\\LaravelBlogStarter\\App\\": "app/",
+            "Ianrizky\\LaravelBlogStarter\\Database\\Factories\\": "database/factories/",
+            "Ianrizky\\LaravelBlogStarter\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
@@ -36,5 +38,15 @@
             "email": "ian.rizkypratama@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ianrizky\\LaravelBlogStarter\\App\\Providers\\ServiceProvider"
+            ],
+            "aliases": {
+                "LaravelBlogStarter": "Ianrizky\\LaravelBlogStarter\\App\\Suppoort\\Facades\\LaravelBlogStarter"
+            }
+        }
+    }
 }
