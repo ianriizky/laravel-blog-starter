@@ -28,7 +28,7 @@ trait UsePostgreSQLConnection
      */
     public function getSchemaName(): ?string
     {
-        $connection = config('database.connections.' . $this->getConnectionName());
+        $connection = config('database.connections.'.$this->getConnectionName());
 
         return $connection['schema'] ?? 'public';
     }
@@ -41,6 +41,6 @@ trait UsePostgreSQLConnection
      */
     public function getTableWithSchema(string $separator = '.'): ?string
     {
-        return $this->getSchemaName() . $separator . $this->getTable();
+        return $this->getSchemaName().$separator.$this->getTable();
     }
 }

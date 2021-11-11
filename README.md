@@ -1,5 +1,6 @@
 # Laravel Blog Starter
 
+[![StyleCI](https://github.styleci.io/repos/425769801/shield)](https://github.styleci.io/repos/425769801)
 [![Total Downloads](https://poser.pugx.org/ianriizky/laravel-blog-starter/d/total.svg)](https://packagist.org/packages/ianriizky/laravel-blog-starter)
 [![Latest Stable Version](https://poser.pugx.org/ianriizky/laravel-blog-starter/v/stable.svg)](https://packagist.org/packages/ianriizky/laravel-blog-starter)
 [![License](https://poser.pugx.org/ianriizky/laravel-blog-starter/license.svg)](https://packagist.org/packages/ianriizky/laravel-blog-starter)

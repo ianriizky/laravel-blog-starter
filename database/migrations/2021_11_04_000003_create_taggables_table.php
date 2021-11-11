@@ -33,7 +33,7 @@ return new class extends Migration
     public function __construct()
     {
         $this->taggableName = config('laravel-blog-starter.model.taggable');
-        $this->tableName = config('laravel-blog-starter.table_prefix') . Str::plural($this->taggableName);
+        $this->tableName = config('laravel-blog-starter.table_prefix').Str::plural($this->taggableName);
     }
 
     /**

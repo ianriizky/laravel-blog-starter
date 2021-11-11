@@ -63,7 +63,7 @@ trait Relation
         return $this->morphToMany(
             config('laravel-blog-started.model.tag', Tag::class),
             'taggable',
-            config('laravel-blog-starter.table_prefix') . Str::plural(config('laravel-blog-starter.model.taggable'))
+            config('laravel-blog-starter.table_prefix').Str::plural(config('laravel-blog-starter.model.taggable'))
         )->withTimestamps();
     }
 

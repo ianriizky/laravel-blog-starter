@@ -67,7 +67,7 @@ trait HandleModel
         $attributes = array_map(function ($name) {
             $relation = $this->$name();
 
-            if (!($relation instanceof Relation && method_exists($relation, 'getForeignKeyName'))) {
+            if (! ($relation instanceof Relation && method_exists($relation, 'getForeignKeyName'))) {
                 throw new InvalidArgumentException(sprintf(
                     'The given relation name %s on model class %s must return a relationship instance and has getForeignKeyName() method.',
                     $name, static::class
@@ -96,7 +96,7 @@ trait HandleModel
         return $models->every(function (Model $model) use ($className, $throwExceptionWhenNotValid) {
             $isValid = $model instanceof $className;
 
-            if (!$isValid && $throwExceptionWhenNotValid) {
+            if (! $isValid && $throwExceptionWhenNotValid) {
                 throw new DomainException(sprintf(
                     'Invalid %s model type, %s given', $className, get_class($model)
                 ));

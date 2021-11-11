@@ -3,7 +3,7 @@
 namespace Ianrizky\LaravelBlogStarter\App\Support\Models;
 
 /**
- * Implement table_prefix configuration from config/laravel-blog-starter.php
+ * Implement table_prefix configuration from config/laravel-blog-starter.php.
  */
 trait UseTablePrefix
 {
@@ -28,6 +28,6 @@ trait UseTablePrefix
      */
     protected function setTableNamePrefix(string $default = null)
     {
-        $this->table = config('laravel-blog-starter.table_prefix', $default) . $this->getTable();
+        $this->table = config('laravel-blog-starter.table_prefix', $default).$this->getTable();
     }
 }

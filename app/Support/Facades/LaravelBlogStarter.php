@@ -6,5 +6,5 @@ use Illuminate\Support\Facades\Facade;
 
 class LaravelBlogStarter extends Facade
 {
-
+    //
 }

@@ -24,7 +24,7 @@ trait Relation
         return $this->morphedByMany(
             config('laravel-blog-started.model.article', Article::class),
             'taggable',
-            config('laravel-blog-starter.table_prefix') . Str::plural(config('laravel-blog-starter.model.taggable'))
+            config('laravel-blog-starter.table_prefix').Str::plural(config('laravel-blog-starter.model.taggable'))
         )->withTimestamps();
     }
 
