@@ -72,7 +72,6 @@ trait HandleModel
                     'The given relation name %s on model class %s must return a relationship instance and has getForeignKeyName() method.',
                     $name, static::class
                 ));
-
             }
 
             return $relation->getForeignKeyName();
@@ -100,7 +99,6 @@ trait HandleModel
                 throw new DomainException(sprintf(
                     'Invalid %s model type, %s given', $className, get_class($model)
                 ));
-
             }
 
             return $isValid;
