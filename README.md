@@ -19,7 +19,7 @@ composer require ianriizky/laravel-blog-starter
 
 ## Testing
 ```bash
-./vendor/bin/phpunit
+./vendor/bin/pest
 ```
 
 ## Changelog
