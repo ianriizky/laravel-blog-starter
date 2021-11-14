@@ -9,13 +9,39 @@
 
 **laravel-blog-starter** is a starter kit to build blog application using Laravel Framework.
 
+## Requirement
+- Laravel Framework ^8.0
+- PHP ^7.4|^8.0
+- MySQL ^5.7
+
 ## Instalation
 You can install the package via composer:
 
 ```bash
 composer require ianriizky/laravel-blog-starter
 ```
+
+After installation process finished, you are suggested to publish the configuration file:
+
+```bash
+php artisan vendor:publish --provider="Ianrizky\LaravelBlogStarter\App\Providers\ServiceProvider" --tag="config"
+```
+
 > Packagist: https://packagist.org/packages/ianriizky/laravel-blog-starter
+
+## Preparing The Database
+You need to publish the migration to create the required table:
+
+```bash
+php artisan vendor:publish --provider="Ianrizky\LaravelBlogStarter\App\Providers\ServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
+```
+
+After that, you need to run migrations.
+
+```bash
+php artisan migrate
+```
 
 ## Testing
 ```bash

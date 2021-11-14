@@ -8,10 +8,11 @@
         "blog"
     ],
     "require": {
-        "laravel/framework": "^8.0",
         "php": "^7.4|^8.0",
+        "laravel/framework": "^8.0",
         "spatie/laravel-sluggable": "^2.6",
-        "spatie/laravel-translatable": "^4.6"
+        "spatie/laravel-translatable": "^4.6",
+        "spatie/laravel-medialibrary": "^9.0.0"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.9",

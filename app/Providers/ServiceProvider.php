@@ -3,7 +3,6 @@
 namespace Ianrizky\LaravelBlogStarter\App\Providers;
 
 use Illuminate\Contracts\Container\Container as ContainerContract;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
@@ -19,7 +18,12 @@ class ServiceProvider extends BaseServiceProvider
             __DIR__.'/../../config/laravel-blog-starter.php' => $this->app->configPath('laravel-blog-starter.php'),
         ], 'config');
 
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+        $this->publishes([
+            __DIR__.'/../../database/migrations/001_create_categories_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_categories_table.php'),
+            __DIR__.'/../../database/migrations/002_create_tags_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time() + 1).'_create_tags_table.php'),
+            __DIR__.'/../../database/migrations/003_create_taggables_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time() + 2).'_create_taggables_table.php'),
+            __DIR__.'/../../database/migrations/004_create_articles_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time() + 3).'_create_articles_table.php'),
+        ], 'migrations');
 
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
