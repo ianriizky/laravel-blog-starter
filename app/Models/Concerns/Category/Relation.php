@@ -2,7 +2,7 @@
 
 namespace Ianrizky\LaravelBlogStarter\App\Models\Concerns\Category;
 
-use Ianrizky\LaravelBlogStarter\App\Models\Article;
+use Ianrizky\LaravelBlogStarter\App\Support\Config;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -19,6 +19,6 @@ trait Relation
      */
     public function articles(): HasMany
     {
-        return $this->hasMany(config('laravel-blog-starter.model.article', Article::class));
+        return $this->hasMany(Config\Model::modelClassName('article'));
     }
 }

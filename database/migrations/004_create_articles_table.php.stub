@@ -1,7 +1,6 @@
 <?php
 
-use Ianrizky\LaravelBlogStarter\App\Models\Article;
-use Ianrizky\LaravelBlogStarter\App\Models\Category;
+use Ianrizky\LaravelBlogStarter\App\Support\Config;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,7 +24,7 @@ return new class extends Migration
      */
     public function __construct()
     {
-        $this->modelClassName = config('laravel-blog-starter.model.article', Article::class);
+        $this->modelClassName = Config\Model::modelClassName('article');
     }
 
     /**
@@ -36,7 +35,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create($this->modelClassName::getTableName(), function (Blueprint $table) {
-            $categoryModelClassName = config('laravel-blog-starter.model.category', Category::class);
+            $categoryModelClassName = Config\Model::modelClassName('category');
 
             $table->id();
             $table->foreignIdFor($categoryModelClassName)

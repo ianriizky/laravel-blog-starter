@@ -1,17 +1,19 @@
 <?php
 
 return [
+
     /*
     |--------------------------------------------------------------------------
-    | Table Prefix Configuration
+    | Application Name
     |--------------------------------------------------------------------------
     |
-    | This option set the table prefix name on the database.
-    | Note: Set to "null" to disable this configuration.
+    | This value is the name of your application comes from Laravel Framework.
     |
     */
 
-    'table_prefix' => null,
+    'app_name' => env('APP_NAME', 'Blog Starter'),
+
+    'app_shortname' => env('APP_SHORTNAME', 'BS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -25,30 +27,41 @@ return [
 
     'route' => [
         'api' => [
-            'prefix' => '/blog/api',
-            'middleware' => 'api',
+            'prefix' => Ianrizky\LaravelBlogStarter\App\Support\Config\Route::DEFAULT_API_PREFIX,
+            'middleware' => Ianrizky\LaravelBlogStarter\App\Support\Config\Route::DEFAULT_API_MIDDLEWARE,
+            'as' => Ianrizky\LaravelBlogStarter\App\Support\Config\Route::DEFAULT_API_NAME,
         ],
 
-        'dashboard' => [
-            'prefix' => '/blog/dashboard',
-            'middleware' => 'web',
+        'web' => [
+            'prefix' => Ianrizky\LaravelBlogStarter\App\Support\Config\Route::DEFAULT_WEB_PREFIX,
+            'middleware' => Ianrizky\LaravelBlogStarter\App\Support\Config\Route::DEFAULT_WEB_MIDDLEWARE,
+            'as' => Ianrizky\LaravelBlogStarter\App\Support\Config\Route::DEFAULT_WEB_NAME,
         ],
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Model Class Name
+    | Model Class & Table Name
     |--------------------------------------------------------------------------
     |
-    | This option determine the model class used on the application.
+    | This option determine the model class and table name used on the application.
     |
     */
 
-    'model' => [
-        'category' => Ianrizky\LaravelBlogStarter\App\Models\Category::class,
-        'tag' => Ianrizky\LaravelBlogStarter\App\Models\Tag::class,
-        'taggable' => 'taggable',
-        'article' => Ianrizky\LaravelBlogStarter\App\Models\Article::class,
-    ],
+    'model' => Ianrizky\LaravelBlogStarter\App\Support\Config\Model::DEFAULT_MODEL,
+
+    'table' => Ianrizky\LaravelBlogStarter\App\Support\Config\Model::DEFAULT_TABLE,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Table Prefix Configuration
+    |--------------------------------------------------------------------------
+    |
+    | This option set the table prefix name on the database.
+    | Note: Set to "null" to disable this configuration.
+    |
+    */
+
+    'table_prefix' => Ianrizky\LaravelBlogStarter\App\Support\Config\Model::DEFAULT_TABLE_PREFIX,
 
 ];

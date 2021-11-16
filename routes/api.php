@@ -1,5 +1,7 @@
 <?php
 
+use Ianrizky\LaravelBlogStarter\App\Http\Controllers\Api\WelcomeController;
+use Ianrizky\LaravelBlogStarter\App\Support\Config;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'prefix' => config('laravel-blog-starter.prefix.route.api.prefix', '/blog/api'),
-    'middleware' => config('laravel-blog-starter.prefix.route.api.middleware', 'api'),
+    'prefix' => Config\Route::getApiPrefix(),
+    'middleware' => Config\Route::getApiMiddleware(),
+    'as' => Config\Route::getApiName(),
 ], function () {
-    Route::get('/welcome', function () {
-        return response()->json(['message' => 'Welcome!']);
-    });
+    Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 });

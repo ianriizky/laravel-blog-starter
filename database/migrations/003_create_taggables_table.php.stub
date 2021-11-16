@@ -1,14 +1,10 @@
 <?php
 
-use Ianrizky\LaravelBlogStarter\App\Models\Tag;
+use Ianrizky\LaravelBlogStarter\App\Support\Config;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
 
-/**
- * @see \Ianrizky\LaravelBlogStarter\App\Models\Tag
- */
 return new class extends Migration
 {
     /**
@@ -32,8 +28,8 @@ return new class extends Migration
      */
     public function __construct()
     {
-        $this->taggableName = config('laravel-blog-starter.model.taggable');
-        $this->tableName = config('laravel-blog-starter.table_prefix').Str::plural($this->taggableName);
+        $this->taggableName = 'taggable';
+        $this->tableName = Config\Model::tableName('taggable');
     }
 
     /**
@@ -43,10 +39,8 @@ return new class extends Migration
      */
     public function up()
     {
-        $taggableName = config('laravel-blog-starter.model.taggable');
-
-        Schema::create($this->tableName, function (Blueprint $table) use ($taggableName) {
-            $tagModelClassName = config('laravel-blog-starter.model.tag', Tag::class);
+        Schema::create($this->tableName, function (Blueprint $table) {
+            $tagModelClassName = Config\Model::modelClassName('tag');
 
             $table->id();
 
@@ -55,7 +49,7 @@ return new class extends Migration
                 ->constrained($tagModelClassName::getTableName())
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->morphs($taggableName);
+            $table->morphs($this->taggableName);
             $table->timestamps();
         });
     }

@@ -21,10 +21,11 @@ You can install the package via composer:
 composer require ianriizky/laravel-blog-starter
 ```
 
-After installation process finished, you are suggested to publish the configuration file:
+After installation process finished, you are suggested to publish the configuration and public file:
 
 ```bash
 php artisan vendor:publish --provider="Ianrizky\LaravelBlogStarter\App\Providers\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Ianrizky\LaravelBlogStarter\App\Providers\ServiceProvider" --tag="public"
 ```
 
 > Packagist: https://packagist.org/packages/ianriizky/laravel-blog-starter

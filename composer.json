@@ -17,7 +17,8 @@
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "pestphp/pest": "^1.20",
-        "pestphp/pest-plugin-laravel": "^1.1"
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "orchestra/testbench": "^6.23"
     },
     "license": "MIT",
     "autoload": {
@@ -45,8 +46,14 @@
                 "Ianrizky\\LaravelBlogStarter\\App\\Providers\\ServiceProvider"
             ],
             "aliases": {
-                "LaravelBlogStarter": "Ianrizky\\LaravelBlogStarter\\App\\Suppoort\\Facades\\LaravelBlogStarter"
+                "LaravelBlogStarter": "Ianrizky\\LaravelBlogStarter\\App\\Support\\Facades\\LaravelBlogStarter",
+                "LaravelBlogStarterConfigRoute": "Ianrizky\\LaravelBlogStarter\\App\\Support\\Config\\Route"
             }
         }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ]
     }
 }

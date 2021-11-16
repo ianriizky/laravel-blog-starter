@@ -25,6 +25,10 @@ class ServiceProvider extends BaseServiceProvider
             __DIR__.'/../../database/migrations/004_create_articles_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time() + 3).'_create_articles_table.php'),
         ], 'migrations');
 
+        $this->publishes([
+            __DIR__.'/../../public' => public_path('vendor/laravel-blog-starter'),
+        ], 'public');
+
         $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
         $this->loadRoutesFrom(__DIR__.'/../../routes/api.php');
 

@@ -3,6 +3,7 @@
 namespace Ianrizky\LaravelBlogStarter\App\Models\Concerns\Tag;
 
 use Ianrizky\LaravelBlogStarter\App\Models\Article;
+use Ianrizky\LaravelBlogStarter\App\Support\Config;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Str;
@@ -21,11 +22,7 @@ trait Relation
      */
     public function articles(): MorphToMany
     {
-        return $this->morphedByMany(
-            config('laravel-blog-started.model.article', Article::class),
-            'taggable',
-            config('laravel-blog-starter.table_prefix').Str::plural(config('laravel-blog-starter.model.taggable'))
-        )->withTimestamps();
+        return $this->morphedByMany(Config\Model::modelClassName('article'), 'taggable', Config\Model::tableName('taggable'))->withTimestamps();
     }
 
     /**

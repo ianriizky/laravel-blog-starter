@@ -2,6 +2,8 @@
 
 namespace Ianrizky\LaravelBlogStarter\App\Support\Models;
 
+use Ianrizky\LaravelBlogStarter\App\Support\Config;
+
 /**
  * Implement table_prefix configuration from config/laravel-blog-starter.php.
  */
@@ -23,11 +25,10 @@ trait UseTablePrefix
     /**
      * Set table prefix name using laravel-blog-starter configuration.
      *
-     * @param  string|null  $default
      * @return void
      */
-    protected function setTableNamePrefix(string $default = null)
+    protected function setTableNamePrefix()
     {
-        $this->table = config('laravel-blog-starter.table_prefix', $default).$this->getTable();
+        $this->table = Config\Model::tablePrefix().$this->getTable();
     }
 }

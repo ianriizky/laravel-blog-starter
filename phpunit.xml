@@ -14,4 +14,7 @@
             <directory suffix=".php">./app</directory>
         </include>
     </coverage>
+    <php>
+        <env name="APP_KEY" value="base64:IymgnFvwprZubRXe566oGp1G2EIcNzazqbU9JXO2d6I=" />
+    </php>
 </phpunit>

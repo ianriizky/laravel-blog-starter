@@ -4,10 +4,10 @@ namespace Ianrizky\LaravelBlogStarter\App\Models\Concerns\Article;
 
 use Ianrizky\LaravelBlogStarter\App\Models\Category;
 use Ianrizky\LaravelBlogStarter\App\Models\Tag;
+use Ianrizky\LaravelBlogStarter\App\Support\Config;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Support\Str;
 
 /**
  * @property int|null $category_id Foreign key of \Ianrizky\LaravelBlogStarter\App\Models\Category.
@@ -25,7 +25,7 @@ trait Relation
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(config('laravel-blog-starter.model.category', Category::class));
+        return $this->belongsTo(Config\Model::modelClassName('category'));
     }
 
     /**
@@ -60,11 +60,7 @@ trait Relation
      */
     public function tags(): MorphToMany
     {
-        return $this->morphToMany(
-            config('laravel-blog-started.model.tag', Tag::class),
-            'taggable',
-            config('laravel-blog-starter.table_prefix').Str::plural(config('laravel-blog-starter.model.taggable'))
-        )->withTimestamps();
+        return $this->morphToMany(Config\Model::modelClassName('tag'), 'taggable', Config\Model::tableName('taggable'))->withTimestamps();
     }
 
     /**

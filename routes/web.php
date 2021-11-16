@@ -1,5 +1,7 @@
 <?php
 
+use Ianrizky\LaravelBlogStarter\App\Http\Controllers\Web\DashboardController;
+use Ianrizky\LaravelBlogStarter\App\Support\Config;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'prefix' => config('laravel-blog-starter.prefix.route.web.prefix', '/blog/dashboard'),
-    'middleware' => config('laravel-blog-starter.prefix.route.web.middleware', 'web'),
+    'prefix' => Config\Route::getWebPrefix(),
+    'middleware' => Config\Route::getWebMiddleware(),
+    'as' => Config\Route::getWebName(),
 ], function () {
-    Route::get('/welcome', function () {
-        echo 'Welcome!';
-    });
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 });
