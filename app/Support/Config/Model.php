@@ -42,7 +42,7 @@ class Model
      */
     public static function modelClassName(string $model): ?string
     {
-        if (!$class = config('laravel-blog-starter.model.'.$model, static::DEFAULT_MODEL[$model] ?? null)) {
+        if (! $class = config('laravel-blog-starter.model.'.$model, static::DEFAULT_MODEL[$model] ?? null)) {
             throw new DomainException($model.' model class name is not provided by the Ianrizky\LaravelBlogStarter package');
         }
 
@@ -57,7 +57,7 @@ class Model
      */
     public static function tableName(string $table): ?string
     {
-        if (!$class = config('laravel-blog-starter.table.'.$table, static::DEFAULT_TABLE[$table] ?? null)) {
+        if (! $class = config('laravel-blog-starter.table.'.$table, static::DEFAULT_TABLE[$table] ?? null)) {
             throw new DomainException($table.' name is not provided by the Ianrizky\LaravelBlogStarter package');
         }
 
